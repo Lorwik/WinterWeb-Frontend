@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MultimediaComponent } from './pages/multimedia/multimedia.component';
 import { StaffComponent } from './pages/staff/staff.component';
 import { DescargasComponent } from './pages/descargas/descargas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DescargasComponent } from './pages/descargas/descargas.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

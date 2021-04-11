@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NoticiasService } from '../../services/noticias.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  pagActual: number;
+
+  constructor(private NoticiasService: NoticiasService) {
+    this.NoticiasService.obtenernoticias();
+    this.pagActual = 0;
+  }
 
   ngOnInit(): void {
+  }
+
+  get Noticias() {
+    return this.NoticiasService.noticias;
+  }
+
+  especificarPagina(numero: number){
+
+    this.pagActual = numero;
+
   }
 
 }

@@ -1,128 +1,25 @@
 <div id='title_content'>NOTICIAS</div>
 
-<div class='news'>
-    <div class='news_title'>
-        <a href="#">¡A por la copa Argentum!</a> / 10.04.2021
-    </div>
-    <div class='news_text'>
-        <p>En nombre de todo el Staff de Comunidad Winter nos complace informaros que nos hemos inscrito en la primera
-            copa Argentum.
-            Santos, Krosty, Moncho, Rey T y Topito son los jugadores que represantara a Winter en la copa. Conozcan mas
-            de ellos en los videos de presentación
-        </p>
-
-        <iframe width="380" height="200" src="https://www.youtube.com/embed/ezEF8QLxasY" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-
-        <iframe width="380" height="200" src="https://www.youtube.com/embed/uh_FRhr22do" title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </div>
-    <div class='news_info'>
-        <!-- <div><a href="#"><img src="assets/img/news_more.png">read more</a></div> -->
-        by <a href="#">WinterAO Staff</a>
-    </div>
-</div>
-
-<div class='news'>
-    <div class='news_title'>
-        <a href="#">Estrenamos diseño web</a> / 30.03.2021
-    </div>
-    <div class='news_text'>
-        <p>Cada día trabajamos para construir la infraestructura del proyecto Winter, ya que la nueva versión requiere
-            de muchas features externas al propio juego para poder funcionar correctamente, y poder dar la mejor
-            experiencia al usuario.
-        </p>
-        <p>El caso de la web no es para menos, ya que será uno de los puntos mas importante de la nueva versión, y es
-            por ello que hemos dedicado tiempo para mejorar su diseño, para que sea mas amigable con el usuario y
-            ofrezca mas información. El remodelado no solo ha sido en diseño, también se ha reprogramado todo utilizando
-            las tecnologías mas punteras.
-            Lejos de estas completa, además del diseño, se han actualizado algunas de las
-            secciones, como 'Multimedia' y 'Staff'.</p>
-
-        <p>Aprovecho la ocasión para recordarles que seguimos en busqueda de Staff, entre ellos un programador web para
-            seguir trabajando en todas las características que ofrecerá.</p>
-
-        <a href="https://forms.gle/83HfGaUQ85J33Jqe7" target="_blank">Formulario de postulación</a>
-        <br><br>
-        <p>Sin mas, seguimos trabajando en la nueva versión de Winter, y os prometemos que la espera merecera la pena!
-            Próximamente daremos mucha mas información acerca de lo que traerá la nueva versión.</p>
-    </div>
-    <div class='news_info'>
-        <!-- <div><a href="#"><img src="assets/img/news_more.png">read more</a></div> -->
-        by <a href="#">Lorwik</a>
-    </div>
-</div>
-
-<div class='news'>
-    <div class='news_title'>
-        <a href="#">¡Grandes Cambios!</a> / 12.03.2021
-    </div>
-    <div class='news_text'>
-        <p>Como habréis podido notar, estos últimos meses hemos estado algo inactivos en las redes. Tanto yo (Zharkekl)
-            como Lorwik hemos estado ausentes durante una corta temporada. Este proyecto lo llevamos a cabo en nuestro
-            tiempo libre, pero tanto nosotros como el resto del Staff nos sentimos completamente comprometidos con la
-            comunidad.</p>
-
-        <p>Actualmente nos encontramos gestionando además de WinterAO otros proyectos vinculados a este, es por ello que
-            a
-            partir de ahora pasamos a llamarnos COMUNIDAD WINTER. Queremos hacer algo muy grande y para ello necesitamos
-            ampliar nuestro Staff, así pues desde el día de hoy quedan abiertas las postulaciones para formar parte del
-            Staff de Comunidad Winter, si creen que pueden llegar a formar parte del Staff aquí abajo les dejamos un
-            formulario de postulación al mismo.</p>
-
-        <a href="https://forms.gle/83HfGaUQ85J33Jqe7" target="_blank">Formulario de postulación</a>
-    </div>
-    <div class='news_info'>
-        <!-- <div><a href="#"><img src="assets/img/news_more.png">read more</a></div> -->
-        by <a href="#">Zharkel</a>
-    </div>
-</div>
-
-<div class='news'>
-    <div class='news_title'>
-        <a href="#">¡Estrenamos Web!</a> / 01.07.2020
-    </div>
-    <div class='news_text'>
-        <p>Hace 3 meses, parte del antiguo Staff de WinterAO nos reunimos después de 8 años para emprender una nueva
-            versión del proyecto. Si bien es cierto que para algunos la espera se hace larga desde el Staff podemos
-            decir
-            que estamos desarrollando la nueva versión en un tiempo récord. Y es que en 3 meses de desarrollo, hemos
-            logrado
-            hacer lo que en versiones anteriores nos llevo años hacer.</p>
-
-        <p>Estamos desarrollando esta versión completamente desde cero, pero con la experiencia de las versiones
-            anteriores, y con los conocimientos y herramientas actuales. Estamos poniendo mucho empeño para diseñar y
-            desarrollar todo al mas mínimo detalle, aprendiendo de los errores pasados.</p>
-
-        <p>Es por lo que nos enorgullece dar este gran paso abriendo la nueva Web y Wiki al publico, que si bien aun no
-            están terminadas al 100%, es una buena señal de que estamos haciendo progresos y que cada día falta menos
-            para
-            esta online</p>
-
-        <p>Le damos especialmente las gracias a Jopi por el increible trabajo que ha estado realizando en la web, y que
-            a
-            día de hoy sigue. También aprovechamos, para dar las gracias a toda la comunidad, que día tras día nos apoya
-            y
-            sigue creciendo. Y le recordamos que nos pueden seguir en las redes sociales, y unirse a nuestro canal de
-            Discord para participar en la comunidad y estar al ultima sobre el desarrollo.</p>
-    </div>
-    <div class='news_info'>
-        <!-- <div><a href="#"><img src="assets/img/news_more.png">read more</a></div> -->
-        by <a href="#">WinterAO Staff</a>
+<div class='news' *ngFor="let noticia of Noticias.reverse(); let i = index">
+    <div *ngIf="i == pagActual || i == pagActual + 1">
+        <div class='news_title'>
+            <a href="#">{{noticia.titulo}}</a> / {{noticia.fecha}}
+        </div>
+        <div class='news_text'>
+            <td [innerHTML]="noticia.contenido"> </td>
+        </div>
+        <div class='news_info'>
+            <!-- <div><a href="#"><img src="assets/img/news_more.png">read more</a></div> -->
+            by <a href="#">{{noticia.autor}}</a>
+        </div>
     </div>
 </div>
 <div id='pages'>
-    <a href="#" id='p_back'>back</a>
-    <a href="#" id='page_sel'>1</a>
-    <!-- <a href="#">2</a>
-    <a href="#">3</a>
-    <a href="#">4</a>
-    <a href="#">5</a>
+    <div class="mr-4"><a *ngIf="(pagActual - 2) == 0" (click)="especificarPagina(pagActual - 2)">Anterior </a></div>
+    <!-- <a (click)="especificarPagina(0)">1</a>
+    <a (click)="especificarPagina(2)">2</a>
+    <a (click)="especificarPagina(3)">3</a>
     <span>...</span>
     <a href="#">34</a> -->
-    <a href="#" id='p_next'>next</a>
+    <div><a *ngIf="(pagActual + 2) < Noticias.length" (click)="especificarPagina(pagActual + 2)"> Siguiente</a></div>
 </div>
