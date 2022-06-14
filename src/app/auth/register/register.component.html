@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center h-100">
+	<div class="card">
+		<div class="card-header">
+			<h3>Nueva Cuenta</h3>
+		</div>
+		<div class="card-body">
+			<form id="registrarform" autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearCuenta()">
+				<div class="input-group form-group p-2">
+					<input type="text" class="form-control" placeholder="Nombre de Cuenta" formControlName="username">
+
+				</div>
+				<div class="input-group form-group p-2">
+					<input type="password" class="form-control" placeholder="Contraseña" formControlName="password">
+				</div>
+
+				<div class="input-group form-group p-2">
+					<input type="password" class="form-control" placeholder="Reescriba la Contraseña:"
+						formControlName="repassword">
+				</div>
+
+				<div class="input-group form-group p-2">
+					<input type="email" class="form-control" placeholder="email" formControlName="email">
+				</div>
+
+				<div class="row align-items-center remember">
+					<input type="checkbox" formControlName="terminos">
+					<label>He leído y acepto los Términos de Uso, Política
+					de Privacidad y Reglamento de Nombres del juego.</label>
+				</div>
+				<br />
+				<div class="form-group">
+					<input type="submit" name="imgingresar" id="registro_btn" alt="registrar"
+						class="d-flex justify-content-center">
+				</div>
+			</form>
+		</div>
+		<div class="card-footer">
+			<div class="row">
+				<div class="col text-danger">
+
+					<p *ngIf="campoNoValido('username')">* El nombre es obligatorio</p>
+					<p *ngIf="campoNoValido('email')">* El email es obligatorio y tiene que ser válido</p>
+					<p *ngIf="contrasenasNoValidas()">* Las contraseñas deben de ser iguales</p>
+					<p *ngIf="aceptaTerminos()">* Debe de aceptar los términos de uso</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

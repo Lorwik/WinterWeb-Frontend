@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.card{
+margin-top: auto;
+margin-bottom: auto;
+background-color: #302c23;
+}
+
+.card-header h3{
+color: white;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FFC312;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+#login_btn{
+color: black;
+background: url(/assets/img/buttons/btningresar.png) no-repeat;
+width: 150px;
+height: 61px;
+border-width: 0;
+}
+
+#login_btn:hover{
+color: black;
+background: url(/assets/img/buttons/btningresarpress.png) no-repeat;
+width: 150px;
+height: 61px;
+border-width: 0;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}

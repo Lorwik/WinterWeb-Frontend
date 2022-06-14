@@ -8,6 +8,7 @@ import { MultimediaComponent } from './pages/multimedia/multimedia.component';
 import { StaffComponent } from './pages/staff/staff.component';
 import { DescargasComponent } from './pages/descargas/descargas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -15,12 +16,13 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     MultimediaComponent,
     StaffComponent,
-    DescargasComponent
+    DescargasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
