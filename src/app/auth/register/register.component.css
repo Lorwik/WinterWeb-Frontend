@@ -45,7 +45,7 @@ margin-right: 5px;
 
 #registro_btn{
 color: black;
-background: url(/assets/img/buttons/btningresar.png) no-repeat;
+background: url(/assets/img/buttons/btnregistrar.png) no-repeat;
 width: 150px;
 height: 61px;
 border-width: 0;
@@ -53,7 +53,7 @@ border-width: 0;
 
 #registro_btn:hover{
 color: black;
-background: url(/assets/img/buttons/btningresarpress.png) no-repeat;
+background: url(/assets/img/buttons/btnregistrarpress.png) no-repeat;
 width: 150px;
 height: 61px;
 border-width: 0;
