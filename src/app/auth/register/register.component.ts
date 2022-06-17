@@ -1,98 +1,85 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
+
+import { UsuarioService } from 'src/app/services/usuario.service';
+import Validation from 'src/app/utils/validation';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css',
+  ]
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
 
   public formSubmitted = false;
 
-  public registerForm = this.fb.group({
-    username: ['', [Validators.required, Validators.minLength(4)]],
-    password: ['', [Validators.required, Validators.minLength(4)]],
-    repassword: ['', [Validators.required, Validators.minLength(4)]],
-    email: ['', [Validators.required, Validators.email]],
-    terminos: [false, [Validators.requiredTrue, Validators.required]]
-  }, {
-    validators: this.passwordsIguales('password', 'repassword')
+  registerForm: FormGroup = new FormGroup({
+    username: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    password2: new FormControl(''),
+    terminos: new FormControl(false),
   });
 
-  constructor(private fb: FormBuilder,
-    private usuarioService: UsuarioService,
-    private router: Router) { }
+  constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { }
+
+  ngOnInit(): void {
+    this.registerForm = this.fb.group(
+      {
+        username: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(20)
+          ]
+        ],
+        email: ['', [Validators.required, Validators.email]],
+        password: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(6),
+            Validators.maxLength(24)
+          ]
+        ],
+        password2: ['', Validators.required],
+        terminos: [false, Validators.requiredTrue]
+      },
+      {
+        validators: [Validation.match('password', 'password2')]
+      }
+    );
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.registerForm.controls;
+  }
 
   crearCuenta() {
+
     this.formSubmitted = true;
-    console.log(this.registerForm.value);
 
     if (this.registerForm.invalid) {
       return;
     }
 
-    // Realizar el posteo
-    this.usuarioService.crearUsuario(this.registerForm.value)
-      .subscribe(resp => {
-
-        // Navegar al Dashboard
-        this.router.navigateByUrl('/');
-
-      }, (err) => {
-        // Si sucede un error
+    // Si el formulario es validor realizamos el Posteo
+    this.usuarioService.crearUsuario(this.registerForm.value).subscribe({
+      next: () => {
+        this.router.navigateByUrl('login');
+      },
+      error: (err) => {
+        //En el caso de suceder un error  sweetalert2
         Swal.fire('Error', err.error.msg, 'error');
-      });
-
-  }
-
-  campoNoValido(campo: string): boolean {
-    if (!this.registerForm.get(campo)?.valid && this.formSubmitted) {
-      return true;
-
-    } else {
-      return false;
-
-    }
-  }
-
-  contrasenasNoValidas() {
-    const pass1 = !this.registerForm.get('password')?.value;
-    const pass2 = !this.registerForm.get('repassword')?.value;
-
-    if ((pass1 !== pass2) && this.formSubmitted) {
-      return true;
-
-    } else {
-      return false;
-
-    }
-
-  }
-
-  aceptaTerminos() {
-    return !this.registerForm.get('terminos')?.value && this.formSubmitted;
-  }
-
-  passwordsIguales(pass1Name: string, pass2Name: string) {
-
-    return (formGroup: FormGroup) => {
-
-      const pass1Control = formGroup.get(pass1Name);
-      const pass2Control = formGroup.get(pass2Name);
-
-      if (!pass1Control?.value === !pass2Control?.value) {
-        !pass2Control?.setErrors(null)
-
-      } else {
-        !pass2Control?.setErrors({ noEsIgual: true })
-
       }
 
-    }
+    });
+
   }
 
 }

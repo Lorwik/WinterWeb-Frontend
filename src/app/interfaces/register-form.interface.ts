@@ -3,7 +3,7 @@ export interface RegisterForm {
     username: string;
     email: string;
     password: string;
-    repassword: string;
+    password2: string;
     terminos: boolean;
 
 }

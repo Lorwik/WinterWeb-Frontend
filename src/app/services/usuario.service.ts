@@ -58,7 +58,6 @@ export class UsuarioService {
 
 
   crearUsuario(formData: RegisterForm) {
-
     return this.http.post(`${base_url}/auth/register`, formData)
       .pipe(
         tap((resp: any) => {
