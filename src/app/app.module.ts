@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
+import { userDashboardModule } from './userDashboard/dashboard.module';
+import { AdmindashboardModule } from './admindashboard/admindashboard.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { PagesModule } from './pages/pages.module';
     AppRoutingModule,
     HttpClientModule,
     AuthModule,
-    PagesModule
+    PagesModule,
+    userDashboardModule,
+    AdmindashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

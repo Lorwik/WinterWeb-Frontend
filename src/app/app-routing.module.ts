@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth.routing';
+import { userDashboardRoutingModule } from './userDashboard/dashboard.routing';
 import { PaguesRoutingModule } from './pages/pages.routing';
+import { adminDashboardRoutingModule } from './admindashboard/admindashboard.routing';
 
 const routes: Routes = [
   {
@@ -14,7 +16,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     AuthRoutingModule,
-    PaguesRoutingModule
+    PaguesRoutingModule,
+    userDashboardRoutingModule,
+    adminDashboardRoutingModule
   ],
   exports: [RouterModule]
 })

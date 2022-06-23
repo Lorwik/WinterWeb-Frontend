@@ -1,24 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Noticias } from '../interfaces/noticias.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
+import { Noticia, Noticias } from '../interfaces/noticias.interface';
+import { environment } from 'src/environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json'
+  })
+};
+
+const AUTH_API = `${environment.base_url}/noticias`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoticiasService {
 
-  //url: string = 'http://192.168.1.5/news/';
-  url: string = 'https://api.comunidadwinter.com.ar/news/';
-
-  public noticias: Noticias[] = [];
+  public noticias!: Noticias;
 
   constructor(private http: HttpClient) { }
 
   obtenernoticias(){
-    return this.http.get<Noticias[]>(`${this.url}news.php?n=winterao`)
+    return this.http.get<Noticias>(`${AUTH_API}`)
     .subscribe((resp) => {
       this.noticias = resp;
     });
+  }
+
+  publicarNoticia(formData: Noticia) {
+    return this.http.post(`${AUTH_API}`, formData, httpOptions);
+
   }
 
 }

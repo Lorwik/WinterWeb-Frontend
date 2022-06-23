@@ -28,8 +28,7 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
-    this.registerForm = this.fb.group(
-      {
+    this.registerForm = this.fb.group({
         username: [
           '',
           [
@@ -69,13 +68,14 @@ export class RegisterComponent implements OnInit {
     }
 
     // Si el formulario es validor realizamos el Posteo
-    this.usuarioService.crearUsuario(this.registerForm.value).subscribe({
+    this.usuarioService.crearUsuario( this.registerForm.value ).subscribe({
       next: () => {
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('/dashboard');
       },
       error: (err) => {
+        console.log(err)
         //En el caso de suceder un error  sweetalert2
-        Swal.fire('Error', err.error.msg, 'error');
+        Swal.fire('Error', err.error.error, 'error');
       }
 
     });

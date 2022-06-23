@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center h-100">
+	<div class="card">
+		<div class="card-header">
+			<h3>Nueva Noticia</h3>
+		</div>
+		<div class="card-body">
+			<form class="form-horizontal form-material" autocomplete="off" [formGroup]="noticiaForm"
+				(ngSubmit)="onSubmit()">
+
+				<div class="form-group">
+					<div class="col-xs-12 p-2">
+						<label>Titulo</label>
+						<input type="text" formControlName="titulo" class="form-control"
+							[ngClass]="{ 'is-invalid': formSubmitted && f['titulo'].errors }" />
+
+						<div *ngIf="formSubmitted && f['titulo'].errors" class="invalid-feedback">
+							<div *ngIf="f['titulo'].errors['required']">El titulo es obligatorio.</div>
+							<div *ngIf="f['titulo'].errors['minlength']">
+								El titulo debe tiene un minimo de 6 caracteres.
+							</div>
+							<div *ngIf="f['titulo'].errors['maxlength']">
+								El titulo no puede tener mas de 100 caracteres.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-12 p-2">
+						<label>Cuerpo</label>
+						<textarea formControlName="cuerpo" class="form-control"
+							[ngClass]="{ 'is-invalid': formSubmitted && f['cuerpo'].errors }"></textarea>
+
+						<div *ngIf="formSubmitted && f['cuerpo'].errors" class="invalid-feedback">
+							<div *ngIf="f['cuerpo'].errors['required']">El cuerpo es obligatorio.</div>
+							<div *ngIf="f['cuerpo'].errors['minlength']">
+								El cuerpo debe tener un minimo de 6 caracteres
+							</div>
+							<div *ngIf="f['cuerpo'].errors['maxlength']">
+								El cuerpo no puede tener un maximo de 8000 caracteres
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Publicar</button>
+				</div>
+
+			</form>
+		</div>
+
+	</div>
+</div>

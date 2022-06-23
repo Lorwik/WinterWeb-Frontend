@@ -6,62 +6,26 @@ import { Observable, of } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
-
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';
 
-const base_url = environment.base_url;
-
-declare const gapi: any;
+const AUTH_API = `${environment.base_url}/auth/`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  public auth2: any;
-
   constructor(private http: HttpClient,
     private router: Router,
     private ngZone: NgZone) {
   }
 
-
-  logout() {
-    localStorage.removeItem('token');
-
-    this.auth2.signOut().then(() => {
-
-      this.ngZone.run(() => {
-        this.router.navigateByUrl('/login');
-      })
-    });
-
-  }
-
-  validarToken(): Observable<boolean> {
-    const token = localStorage.getItem('token') || '';
-
-    return this.http.get(`${base_url}/login/renew`, {
-      headers: {
-        'x-token': token
-      }
-    }).pipe(
-      tap((resp: any) => {
-        localStorage.setItem('token', resp.token);
-      }),
-      map(resp => true),
-      catchError(error => of(false))
-    );
-
-  }
-
-
   crearUsuario(formData: RegisterForm) {
-    return this.http.post(`${base_url}/auth/register`, formData)
+    return this.http.post(`${AUTH_API}register`, formData)
       .pipe(
         tap((resp: any) => {
-          localStorage.setItem('token', resp.token)
+          localStorage.setItem('token', resp.data.token)
         })
       )
 
@@ -69,12 +33,38 @@ export class UsuarioService {
 
   login(formData: LoginForm) {
 
-    return this.http.post(`${base_url}/auth/login`, formData)
+    return this.http.post(`${AUTH_API}login`, formData)
       .pipe(
         tap((resp: any) => {
-          localStorage.setItem('token', resp.token)
+          localStorage.setItem('token', resp.data.token)
         })
       );
+
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+
+    this.ngZone.run(() => {
+      this.router.navigateByUrl('/login');
+    })
+
+  }
+
+  validarToken(): Observable<boolean> {
+    const token = localStorage.getItem('token') || '';
+
+    return this.http.get(`${AUTH_API}renew`, {
+      headers: {
+        'x-token': token
+      }
+    }).pipe(
+      tap((resp: any) => {
+        localStorage.setItem('token', resp.data.token);
+      }),
+      map(resp => true),
+      catchError(error => of(false))
+    );
 
   }
 
