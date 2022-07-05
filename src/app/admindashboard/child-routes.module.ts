@@ -10,7 +10,9 @@ const childRoutes: Routes = [
   {
     path: '',
     component: PanelComponent,
-    data: { titulo: 'Panel de administración' }
+    data: { titulo: 'Panel de administración' },
+    canActivate: [ AuthGuard, AdminGuard ],
+    canLoad: [ AuthGuard, AdminGuard ],
   },
   {
     path: 'admindashboard/nuevaNoticia',
