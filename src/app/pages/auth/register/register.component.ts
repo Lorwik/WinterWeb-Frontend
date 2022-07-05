@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2'
+import { ReCaptcha2Component } from 'ngx-captcha';
 
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Validation from 'src/app/utils/validation';
@@ -14,6 +15,19 @@ import Validation from 'src/app/utils/validation';
   ]
 })
 export class RegisterComponent implements OnInit {
+  aFormGroup!: FormGroup;
+  @ViewChild('captchaElem') captchaElem!: ReCaptcha2Component;
+  @ViewChild('langInput') langInput!: ElementRef;
+
+  public captchaIsLoaded = false;
+  public captchaSuccess = false;
+  public captchaIsExpired = false;
+  public captchaResponse?: string;
+
+  public theme: 'light' | 'dark' = 'dark';
+  public size: 'compact' | 'normal' = 'normal';
+  public lang = 'en';
+  public type!: 'image' | 'audio';
 
   public formSubmitted = false;
 
@@ -53,6 +67,10 @@ export class RegisterComponent implements OnInit {
         validators: [Validation.match('password', 'password2')]
       }
     );
+
+    this.aFormGroup = this.fb.group({
+      recaptcha: ['', Validators.required]
+    });
   }
 
   get f(): { [key: string]: AbstractControl } {
@@ -62,6 +80,11 @@ export class RegisterComponent implements OnInit {
   crearCuenta() {
 
     this.formSubmitted = true;
+
+    if (this.captchaSuccess === false) {
+      Swal.fire('Error', 'Verifique el CAPTCHA', 'error');
+      return;
+    }
 
     if (this.registerForm.invalid) {
       return;
@@ -80,6 +103,10 @@ export class RegisterComponent implements OnInit {
 
     });
 
+  }
+
+  handleSuccess(data: any) {
+    this.captchaSuccess = true;
   }
 
 }

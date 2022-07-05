@@ -4,7 +4,7 @@
 			<h3>Ingresar</h3>
 		</div>
 		<div class="card-body">
-				<form class="form-horizontal form-material" id="loginform" autocomplete="off" [formGroup]="loginForm"
+			<form class="form-horizontal form-material" id="loginform" autocomplete="off" [formGroup]="loginForm"
 				(ngSubmit)="login()">
 
 				<div class="form-group">
@@ -46,6 +46,15 @@
 				<div class="form-group form-check">
 					<input type="checkbox" formControlName="remember" class="form-check-input" />
 					<label for="remember" class="form-check-label">Recuerdame.</label>
+				</div>
+
+				<div>
+					<form [formGroup]="aFormGroup">
+						<ngx-recaptcha2 #captchaElem siteKey="6LfpLsggAAAAAIIquu5IDM_1eL1-z1DdTwXpr91j"
+							(success)="handleSuccess($event)" [size]="size" [hl]="lang" [theme]="theme" [type]="type"
+							formControlName="recaptcha">
+						</ngx-recaptcha2>
+					</form>
 				</div>
 
 				<div class="form-group">

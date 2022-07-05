@@ -4,6 +4,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 import { MultimediaComponent } from './multimedia/multimedia.component';
 import { StaffComponent } from './staff/staff.component';
@@ -13,6 +14,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { CambiarpassComponent } from './cambiarpass/cambiarpass.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     RegisterComponent,
     PagesComponent,
     PerfilComponent,
+    CambiarpassComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +34,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxCaptchaModule
   ],
   exports: [
     MultimediaComponent,
@@ -40,6 +44,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     LoginComponent,
     RegisterComponent,
     PerfilComponent,
+    CambiarpassComponent,
   ]
 })
 export class PagesModule { }

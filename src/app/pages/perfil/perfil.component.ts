@@ -24,10 +24,6 @@ export class PerfilComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
-  cambiarPass() {
-
-  }
-
   donar() {
 
   }

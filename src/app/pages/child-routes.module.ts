@@ -9,6 +9,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AuthGuard } from '../guards/auth.guard';
+import { CambiarpassComponent } from './cambiarpass/cambiarpass.component';
 
 const childRoutes: Routes = [
   {
@@ -48,6 +49,13 @@ const childRoutes: Routes = [
     component: PerfilComponent,
     pathMatch: 'full',
     data: { titulo: 'Perfil de cuenta' },
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
+  },
+  {
+    path: 'cambiar-password',
+    component: CambiarpassComponent,
+    data: { titulo: 'Cambiar contraseña.' },
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
   },

@@ -88,6 +88,15 @@
 					</div>
 				</div>
 
+				<div>
+					<form [formGroup]="aFormGroup">
+						<ngx-recaptcha2 #captchaElem siteKey="6LfpLsggAAAAAIIquu5IDM_1eL1-z1DdTwXpr91j"
+							(success)="handleSuccess($event)" [size]="size" [hl]="lang" [theme]="theme" [type]="type"
+							formControlName="recaptcha">
+						</ngx-recaptcha2>
+					</form>
+				</div>
+
 				<div class="form-group text-center m-t-20">
 					<div class="col-xs-12">
 						<input type="submit" name="imgingresar" id="registro_btn" alt="registrar"

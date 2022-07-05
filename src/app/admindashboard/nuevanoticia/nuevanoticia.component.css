@@ -1,0 +1,17 @@
+.noticia {
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.noticia-titulo {
+    background-color: rgb(216, 216, 216);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid rgb(97, 96, 96);
+}
+
+.cuerpo {
+    height: 40%;
+}
+

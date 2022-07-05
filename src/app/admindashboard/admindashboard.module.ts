@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AdmindashboardComponent } from './admindashboard.component';
 import { PanelComponent } from './panel/panel.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -14,6 +15,7 @@ import { PanelComponent } from './panel/panel.component';
     NuevanoticiaComponent,
     AdmindashboardComponent,
     PanelComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,

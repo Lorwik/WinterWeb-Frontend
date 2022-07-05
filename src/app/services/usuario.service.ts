@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';
 import { Usuario } from '../models/usuario.model';
+import { CambiarPassForm } from '../interfaces/cambiarpass.interface';
 
 const AUTH_API = `${environment.base_url}/auth/`;
 
@@ -32,6 +33,16 @@ export class UsuarioService {
         })
       )
 
+  }
+
+  cambiarPassword(formData: CambiarPassForm)  {
+    return this.http.post(`${AUTH_API}cambiarpass`, formData)
+    .pipe(
+      tap((resp: any) => {
+
+        localStorage.setItem('token', resp.data.token)
+      })
+    )
   }
 
   login(formData: LoginForm) {

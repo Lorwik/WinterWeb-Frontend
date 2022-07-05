@@ -11,8 +11,7 @@ import { AdmindashboardModule } from './admindashboard/admindashboard.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-
+    AppComponent
   ],
   imports: [
     BrowserModule,
