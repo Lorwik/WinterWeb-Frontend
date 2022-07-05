@@ -1,0 +1,28 @@
+<div id='title_content'>NOTICIAS</div>
+
+<div *ngIf="Noticias">
+    <div class='news' *ngFor="let noticia of Noticias.data.reverse(); let i = index">
+        <div *ngIf="i == pagActual || i == pagActual + 1">
+            <div class='news_title'>
+                <a href="#">{{Noticias.data[i].titulo}}</a> / {{Noticias.data[i].createdAt}}
+            </div>
+            <div class='news_text'>
+                <td [innerHTML]="Noticias.data[i].cuerpo"> </td>
+            </div>
+            <div class='news_info'>
+                <!-- <div><a href="#"><img src="assets/img/news_more.png">read more</a></div> -->
+                by <a href="#">{{Noticias.data[i].createdAt}}</a>
+            </div>
+        </div>
+    </div>
+    <div id='pages'>
+        <div class="mr-4"><a *ngIf="(pagActual - 2) == 0" (click)="especificarPagina(pagActual - 2)">Anterior </a></div>
+        <!-- <a (click)="especificarPagina(0)">1</a>
+    <a (click)="especificarPagina(2)">2</a>
+    <a (click)="especificarPagina(3)">3</a>
+    <span>...</span>
+    <a href="#">34</a> -->
+        <div><a *ngIf="(pagActual + 2) < Noticias.data.length" (click)="especificarPagina(pagActual + 2)"> Siguiente</a>
+        </div>
+    </div>
+</div>

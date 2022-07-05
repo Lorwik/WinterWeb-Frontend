@@ -1,0 +1,162 @@
+<div id='wrapper'>
+    <div id='menu'>
+        <a routerLink="" id='menu_inicio'></a>
+        <!-- <a href="https://comunidadwinter.com.ar/index.php?board=16.0" target="_blank" id='menu_foro'></a> -->
+        <a href="http://winterao.com/wiki/" target="_blank" id='menu_manual'></a>
+        <a routerLink="multimedia" id='menu_multimedia'></a>
+        <a routerLink="staff" id='menu_staff'></a>
+        <a routerLink="descargas" id='menu_descargas'></a>
+        <a routerLink="login" id='menu_cuentas'></a>
+    </div>
+    <div id='logo'>
+        <a href="/"></a>
+    </div>
+    <div id='login'>
+        <div id='auth'>
+            <div id='user_panel_front'>
+                <div id='soc'>
+                    <a href="https://www.facebook.com/Winter-AO-Resurrection-100546474972832/" target="_blank" id='fb'></a>
+                    <a href="https://www.instagram.com/winterao_argentumonline" target="_blank" id='g'></a>
+                    <a href="https://www.youtube.com/channel/UCuQZiL_VgTcQ8oQH9oHo6zA" target="_blank" id='yt'></a>
+                    <a href="https://discord.gg/WHWZwYP" target="_blank" id='dc'></a>
+                    <a href="https://chat.whatsapp.com/HzMMJgdx5s35qVEXzggJN6" target="_blank" id='wh'></a>
+                </div>
+            </div>
+            <!-- <div id='user_panel_down'>
+                <div class='vote_coins'>
+                    <a href="#">VOTE FOR COINS</a>
+                </div>
+                <span></span>
+                <div class='account_setting'>
+                    <a href="#">ACCOUNT SETTING</a>
+                </div>
+                <div class='account_logout'>
+                    <a href="#">LOGOUT</a>
+                </div>
+            </div>  -->
+        </div> 
+    </div>
+    <div id='page_title'>
+    </div>
+    <div id='content'>
+        <div id='content_bottom'>
+            <div id='left'>
+                <div id='button_extern'>
+                    <a routerLink="descargas" id='dw'></a>
+                    <a href="http://winterao.com.ar/wiki/" target="_blank" id='wk'></a>
+                </div>
+                <div id='status'>
+                    <div class='server'>
+                        <img src="assets/img/offline.png">
+                        <a href="#">Servidor Latino</a>
+                        <br>
+                        Estado: <span style="color: #db3340">Offline </span>
+                    </div>
+                    <div class='server'>
+                        <img src="assets/img/offline.png">
+                        <a href="#">Servidor Europeo</a>
+                        <br>
+                        Estado: <span style="color: #db3340">Offline </span>
+                    </div>
+                    <div class='server'>
+                        <img src="assets/img/online.png">
+                        <a href="#">AutoUpdate</a>
+                        <br>
+                        Status: <span style="color: #00b448">Online </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id='right'>
+                <div id='rankings_p'>
+                    <table>
+                        <tr>
+                            <td class='r_num'>
+                                1
+                            </td>
+                            <td>
+                                <a href="#">Lorwik</a>
+                            </td>
+                            <td class='r_stats'>
+                                <span>100</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='r_num'>
+                                2
+                            </td>
+                            <td>
+                                <a href="#">Zharkel</a>
+                            </td>
+                            <td class='r_stats'>
+                                <span>99</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='r_num'>
+                                3
+                            </td>
+                            <td>
+                                <a href="#">Howell</a>
+                            </td>
+                            <td class='r_stats'>
+                                <span>98</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class='r_num'>
+                                4
+                            </td>
+                            <td>
+                                <a href="#">Santo</a>
+                            </td>
+                            <td class='r_stats'>
+                                <span>96</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id='rankings_g'>
+                    <table>
+                        <tr>
+                            <td class='r_num'>
+                                1
+                            </td>
+                            <td>
+                                <a href="#">CWinter</a>
+                            </td>
+                            <td class='r_stats'>
+                                <span>100</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id='center'>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+    <div id='footer'>
+        <div id='f_menu'>
+            <a href="#">INICIO</a>
+            <span></span>
+            <a href="https://comunidadwinter.com.ar/index.php?board=16.0" target="_blank">FORO</a>
+            <span></span>
+            <a href="http://winterao.com.ar/wiki/" target="_blank">MANUAL</a>
+            <span></span>
+            <a routerLink="multimedia">MULTIMEDIA</a>
+            <span></span>
+            <a routerLink="staff">STAFF</a>
+            <span></span>
+            <a routerLink="descargas"descargas>DESCARGAS</a>
+            <span></span>
+            <a href="https://winterao.com.ar/login.php">CONTROL DE CUENTAS</a>
+        </div>
+        <div id='copyright'>
+            Copyright © 2021 WinterAO - Mod de Argentum Online by Comunidad Winter<a href="#">winterao.com.ar</a>.
+            <br>Todos los derechos reservados.
+        </div>
+    </div>
+</div>

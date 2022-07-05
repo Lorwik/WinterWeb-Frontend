@@ -1,0 +1,28 @@
+<div class="mb-1">
+    <h1>Bienvenido {{usuario.username}}</h1>
+    <small>Miembro desde el {{usuario.createdAt | date:'dd/MM/yyyy' }} </small>
+    <br />
+    <small>Ultima conexión e {{usuario.updatedAt | date:'dd/MM/yyyy' }} </small>
+</div>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-danger" (click)="cambiarPass()">Cambiar contraseña</button>
+        </div>
+
+        <div class="col">
+            <button type="button" class="btn btn-danger" (click)="donar()">Donaciones</button>
+        </div>
+
+        <div class="col">
+            <button type="button" class="btn btn-danger" (click)="vip()">VIP</button>
+        </div>
+
+        <div class="col">
+            <button type="button" class="btn btn-danger" (click)="deslogear()">Salir</button>
+        </div>
+    </div>
+</div>

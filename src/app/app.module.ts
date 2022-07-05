@@ -6,9 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AuthInterceptor } from './interceptors/authinterceptor';
 
-import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
-import { userDashboardModule } from './userDashboard/dashboard.module';
 import { AdmindashboardModule } from './admindashboard/admindashboard.module';
 
 @NgModule({
@@ -20,9 +18,7 @@ import { AdmindashboardModule } from './admindashboard/admindashboard.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule,
     PagesModule,
-    userDashboardModule,
     AdmindashboardModule
   ],
   providers: [
