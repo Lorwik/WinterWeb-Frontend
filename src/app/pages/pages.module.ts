@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HomeComponent } from './home/home.component';
 import { MultimediaComponent } from './multimedia/multimedia.component';
 import { StaffComponent } from './staff/staff.component';
 import { DescargasComponent } from './descargas/descargas.component';
@@ -17,7 +16,6 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     MultimediaComponent,
     StaffComponent,
     DescargasComponent,
@@ -36,7 +34,6 @@ import { PerfilComponent } from './perfil/perfil.component';
     HttpClientModule
   ],
   exports: [
-    HomeComponent,
     MultimediaComponent,
     StaffComponent,
     DescargasComponent,

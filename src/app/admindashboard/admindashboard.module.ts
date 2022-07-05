@@ -5,13 +5,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AdmindashboardComponent } from './admindashboard.component';
+import { PanelComponent } from './panel/panel.component';
 
 
 
 @NgModule({
   declarations: [
     NuevanoticiaComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    PanelComponent,
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,11 @@ import { AdmindashboardComponent } from './admindashboard.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
+  ],
+  exports: [
+    NuevanoticiaComponent,
+    AdmindashboardComponent,
+    PanelComponent,
   ]
 })
 export class AdmindashboardModule { }

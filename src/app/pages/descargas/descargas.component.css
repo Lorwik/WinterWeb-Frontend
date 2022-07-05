@@ -1,0 +1,24 @@
+#title_content {
+    position: absolute;
+    text-align: center;
+    font-family: calibri;
+    font-size: 18px;
+    color: #baa08e;
+    margin-top: -75px;
+    margin-left: 165px;
+}
+
+a:link {
+    color: #9fabb8;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #9fabb8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #9fabb8;
+    text-decoration: underline;
+}
