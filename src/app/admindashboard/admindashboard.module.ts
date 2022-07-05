@@ -4,12 +4,14 @@ import { NuevanoticiaComponent } from './nuevanoticia/nuevanoticia.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AdmindashboardComponent } from './admindashboard.component';
 
 
 
 @NgModule({
   declarations: [
-    NuevanoticiaComponent
+    NuevanoticiaComponent,
+    AdmindashboardComponent
   ],
   imports: [
     CommonModule,

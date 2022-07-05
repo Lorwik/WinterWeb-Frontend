@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Usuario {\n  constructor(id, username, email, lastIP, gemas, vip, role, createdAt, updatedAt) {}\n\n}","map":null,"metadata":{},"sourceType":"module"}

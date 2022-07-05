@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  base_url: 'http://localhost:3000/api'
+  base_url: 'http://localhost:3000/api',
+  siteKey: '6LfRObsgAAAAABUcTC5R0ElFhp9C7MDGgJbM2GfK'
 };
 
 /*

@@ -9,7 +9,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     PerfilComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class userDashboardModule { }

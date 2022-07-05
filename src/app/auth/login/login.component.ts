@@ -24,9 +24,13 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.usuarioService.isLoggedIn) {
+      this.router.navigateByUrl('/perfil');
+    }
+
     this.loginForm = this.fb.group({
         username: [
-          '',
+          localStorage.getItem('username') || '',
           [
             Validators.required,
             Validators.minLength(6),
@@ -53,7 +57,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.usuarioService.login( this.loginForm.value ).subscribe({
       next: () => {
-        if ( this.loginForm.get('remember')?.value ){ 
+        if ( this.loginForm.get('remember')!.value ){ 
           localStorage.setItem('username', this.loginForm.get('username')?.value );
 
         } else {
@@ -62,7 +66,7 @@ export class LoginComponent implements OnInit {
         }
 
         // Navegar al Dashboard
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/perfil');
       },
       error: err => {
         Swal.fire('Error', err.error.error, 'error');

@@ -8,7 +8,8 @@ const routes: Routes = [
         path: 'perfil',
         component: PerfilComponent,
         pathMatch: 'full',
-        canActivate: [ AuthGuard ]
+        canActivate: [ AuthGuard ],
+        canLoad: [ AuthGuard ],
       },
       
 ];
