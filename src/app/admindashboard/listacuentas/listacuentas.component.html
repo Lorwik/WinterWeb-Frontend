@@ -1,0 +1,46 @@
+<h2>Lista de cuentas registradas</h2>
+
+<div class="container">
+    <div class="row header-list">
+        <div class="col header-column">
+            ID
+        </div>
+        <div class="col header-column">
+            Nombre
+        </div>
+        <div class="col header-column">
+            Email
+        </div>
+        <div class="col header-column">
+            Verificado
+        </div>
+        <div class="col header-column">
+            Privilegios
+        </div>
+        <div class="col header-column">
+            Acción
+        </div>
+    </div>
+    <div class="row cuerpo-list" *ngFor="let usuario of Usuarios.data; let i = index">
+        <div class="col cuerpo-column">
+            {{Usuarios.data[i].id}}
+        </div>
+        <div class="col cuerpo-column">
+            {{Usuarios.data[i].username}}
+        </div>
+        <div class="col cuerpo-column">
+            {{Usuarios.data[i].email}}
+        </div>
+        <div class="col cuerpo-column">
+            {{Usuarios.data[i].status}}
+        </div>
+        <div class="col cuerpo-column">
+            {{Usuarios.data[i].role}}
+        </div>
+        <div class="col cuerpo-column">
+            <i class="bi bi-pencil-square"></i>
+            &nbsp;
+            <i class="bi bi-trash3"></i>
+        </div>
+    </div>
+</div>

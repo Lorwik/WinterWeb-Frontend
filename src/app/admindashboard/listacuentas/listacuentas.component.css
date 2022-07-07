@@ -1,0 +1,20 @@
+.header-list {
+    background: rgb(209, 207, 207);
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-column{
+    border: 1px solid;
+}
+
+.cuerpo-column {
+    background:rgb(236, 234, 234);
+    height: 35px;
+    width: 186px;
+}
+
+.cuerpo-column {
+    border: 1px solid;
+}

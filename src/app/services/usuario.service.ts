@@ -9,6 +9,7 @@ import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';
 import { Usuario } from '../models/usuario.model';
 import { CambiarPassForm } from '../interfaces/cambiarpass.interface';
+import { Usuarios } from '../interfaces/usuarios.interface';
 
 const AUTH_API = `${environment.base_url}/auth/`;
 
@@ -18,6 +19,7 @@ const AUTH_API = `${environment.base_url}/auth/`;
 export class UsuarioService {
 
   public usuario!: Usuario;
+  usuarios!: Usuarios;
 
   constructor(private http: HttpClient,
     private router: Router,
@@ -35,14 +37,14 @@ export class UsuarioService {
 
   }
 
-  cambiarPassword(formData: CambiarPassForm)  {
+  cambiarPassword(formData: CambiarPassForm) {
     return this.http.post(`${AUTH_API}cambiarpass`, formData)
-    .pipe(
-      tap((resp: any) => {
+      .pipe(
+        tap((resp: any) => {
 
-        localStorage.setItem('token', resp.data.token)
-      })
-    )
+          localStorage.setItem('token', resp.data.token)
+        })
+      )
   }
 
   login(formData: LoginForm) {
@@ -66,10 +68,17 @@ export class UsuarioService {
 
   }
 
-  parseJwt (token: string){
+  listarusuarios() {
+    return this.http.get<Usuarios>(`${AUTH_API}listar`)
+    .subscribe((resp) => {
+      this.usuarios = resp;
+    });
+  }
+
+  parseJwt(token: string) {
     var base64Url = token.split('.')[1];
     var base64 = base64Url.replace('-', '+').replace('_', '/');
-  
+
     return JSON.parse(window.atob(base64));
   };
 
@@ -86,7 +95,7 @@ export class UsuarioService {
     this.usuario = new Usuario(id, username, email, vip, role, updatedAt, createdAt);
   }
 
-  getRole(): string { 
+  getRole(): string {
     return this.usuario.role;
   }
 

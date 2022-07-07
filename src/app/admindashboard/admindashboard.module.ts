@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AdmindashboardComponent } from './admindashboard.component';
 import { PanelComponent } from './panel/panel.component';
 import { HeaderComponent } from './header/header.component';
-
+import { ListanoticiasComponent } from './listanoticias/listanoticias.component';
+import { ListacuentasComponent } from './listacuentas/listacuentas.component';
 
 
 @NgModule({
@@ -16,6 +17,8 @@ import { HeaderComponent } from './header/header.component';
     AdmindashboardComponent,
     PanelComponent,
     HeaderComponent,
+    ListanoticiasComponent,
+    ListacuentasComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,28 @@
+<h2>Lista de noticias</h2>
+
+<div class="container">
+    <div class="row header-list">
+        <div class="col header-column">
+            ID
+        </div>
+        <div class="col header-column">
+            Titulo
+        </div>
+        <div class="col header-column">
+            Acción
+        </div>
+    </div>
+    <div class="row cuerpo-list" *ngFor="let noticia of Noticias.data.reverse(); let i = index">
+        <div class="col cuerpo-column">
+            {{Noticias.data[i].id}}
+        </div>
+        <div class="col cuerpo-column">
+            {{Noticias.data[i].titulo}}
+        </div>
+        <div class="col cuerpo-column">
+            <i class="bi bi-pencil-square"></i>
+            &nbsp;
+            <i class="bi bi-trash3"></i>
+        </div>
+    </div>
+</div>
