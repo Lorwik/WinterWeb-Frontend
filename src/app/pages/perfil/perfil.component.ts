@@ -30,4 +30,6 @@ export class PerfilComponent implements OnInit {
 
   vip() {}
 
+  cambiarpass(){}
+
 }

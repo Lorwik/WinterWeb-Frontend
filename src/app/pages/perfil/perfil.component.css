@@ -7,3 +7,67 @@
     margin-top: -75px;
     margin-left: 165px;
 }
+
+#cambiarpass_btn {
+    color: black;
+    background: url(/assets/img/buttons/botoncambiarpass.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#cambiarpass_btn:hover {
+    color: black;
+    background: url(/assets/img/buttons/botoncambiarpass_pres.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#donar_btn {
+    color: black;
+    background: url(/assets/img/buttons/botondonaciones.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#donar_btn:hover {
+    color: black;
+    background: url(/assets/img/buttons/botondonaciones_press.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#vip_btn {
+    color: black;
+    background: url(/assets/img/buttons/botonVIP.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#vip_btn:hover {
+    color: black;
+    background: url(/assets/img/buttons/botonVIP_press.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#salir_btn {
+    color: black;
+    background: url(/assets/img/buttons/botonsalir.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#salir_btn:hover {
+    color: black;
+    background: url(/assets/img/buttons/botonsalir_press.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
