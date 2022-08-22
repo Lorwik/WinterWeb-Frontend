@@ -15,6 +15,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { PagesComponent } from './pages.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CambiarpassComponent } from './cambiarpass/cambiarpass.component';
+import { ConfirmarCuentaComponent } from './auth/confirmar-cuenta/confirmar-cuenta.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CambiarpassComponent } from './cambiarpass/cambiarpass.component';
     PagesComponent,
     PerfilComponent,
     CambiarpassComponent,
+    ConfirmarCuentaComponent,
   ],
   imports: [
     CommonModule,

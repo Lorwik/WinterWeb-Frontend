@@ -10,14 +10,14 @@ import { PanelComponent } from './panel/panel.component';
 
 const childRoutes: Routes = [
   {
-    path: '',
+    path: 'adminDashboard',
     component: PanelComponent,
     data: { titulo: 'Panel de administración' },
     canActivate: [ AuthGuard, AdminGuard ],
     canLoad: [ AuthGuard, AdminGuard ],
   },
   {
-    path: 'admindashboard/nuevaNoticia',
+    path: 'nuevaNoticia',
     component: NuevanoticiaComponent,
     pathMatch: 'full',
     data: { titulo: 'Nueva noticia' },
@@ -25,14 +25,14 @@ const childRoutes: Routes = [
     canLoad: [ AuthGuard, AdminGuard ],
   },
   {
-    path: 'admindashboard/lista-noticias',
+    path: 'lista-noticias',
     component: ListanoticiasComponent,
     data: { titulo: 'Lista de Noticias.' },
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
   },
   {
-    path: 'admindashboard/lista-cuentas',
+    path: 'lista-cuentas',
     component: ListacuentasComponent,
     data: { titulo: 'Lista de Cuentas.' },
     canActivate: [AuthGuard],

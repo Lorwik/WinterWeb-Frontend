@@ -10,10 +10,16 @@ import { UsuarioService } from '../../services/usuario.service';
 export class PerfilComponent implements OnInit {
   router: any;
   public usuario: Usuario;
+  public esAdmin: boolean;
 
   constructor( private usuarioService: UsuarioService ) {
     this.usuario = usuarioService.usuario;
-    console.log(this.usuario)
+
+    if (usuarioService.getRole() === "admin") {
+      this.esAdmin = true;
+    } else {
+      this.esAdmin = false;
+    }
   }
 
   ngOnInit(): void {
@@ -31,5 +37,9 @@ export class PerfilComponent implements OnInit {
   vip() {}
 
   cambiarpass(){}
+
+  adminPanel() {
+    this.router.navigateByUrl('/adminDashboard');
+  }
 
 }

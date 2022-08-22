@@ -68,6 +68,16 @@ export class UsuarioService {
 
   }
 
+  confirmarCuenta(formData: LoginForm){
+    return this.http.post(`${AUTH_API}verificarcuenta`, formData)
+      .pipe(
+        tap((resp: any) => {
+
+          localStorage.setItem('token', resp.data.token)
+        })
+      );
+  }
+
   listarusuarios() {
     return this.http.get<Usuarios>(`${AUTH_API}listar`)
     .subscribe((resp) => {

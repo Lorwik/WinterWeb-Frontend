@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   public theme: 'light' | 'dark' = 'dark';
   public size: 'compact' | 'normal' = 'normal';
-  public lang = 'en';
+  public lang = 'es';
   public type!: 'image' | 'audio';
 
   public formSubmitted = false;

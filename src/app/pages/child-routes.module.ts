@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { CambiarpassComponent } from './cambiarpass/cambiarpass.component';
+import { ConfirmarCuentaComponent } from './auth/confirmar-cuenta/confirmar-cuenta.component';
 
 const childRoutes: Routes = [
   {
@@ -41,6 +42,11 @@ const childRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
     data: { titulo: 'Login' }
+  },
+  {
+    path: 'confirmar-cuenta',
+    component: ConfirmarCuentaComponent,
+    data: { titulo: 'Confirmar Cuenta' }
   },
 
   // Rutas protegidas de usuarios:

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: true,\n  base_url: 'http://132.145.171.62:8080/api',\n  siteKey: '6LfRObsgAAAAABUcTC5R0ElFhp9C7MDGgJbM2GfK'\n};","map":null,"metadata":{},"sourceType":"module"}

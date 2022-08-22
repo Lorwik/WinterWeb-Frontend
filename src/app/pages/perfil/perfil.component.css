@@ -71,3 +71,19 @@
     height: 61px;
     border-width: 0;
 }
+
+#adminPanel_btn {
+    color: black;
+    background: url(/assets/img/buttons/botonadminPanel.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}
+
+#adminPanel_btn:hover {
+    color: black;
+    background: url(/assets/img/buttons/botonadminPanel_press.png) no-repeat;
+    width: 150px;
+    height: 61px;
+    border-width: 0;
+}

@@ -1,108 +1,115 @@
 <div class="d-flex justify-content-center h-100">
-	<div class="card">
-		<div class="card-body">
-			<form class="form-horizontal form-material" id="loginform" autocomplete="off" [formGroup]="registerForm"
-				(ngSubmit)="crearCuenta()">
+	<div *ngIf="registroExito === false">
+		<div class="card">
+			<div class="card-body">
+				<form class="form-horizontal form-material" id="loginform" autocomplete="off" [formGroup]="registerForm"
+					(ngSubmit)="crearCuenta()">
 
-				<h3 class="box-title m-t-40 m-b-0">Nueva Cuenta</h3>
-				<div class="form-group m-t-20">
-					<div class="col-xs-12 p-2">
+					<h3 class="box-title m-t-40 m-b-0">Nueva Cuenta</h3>
+					<div class="form-group m-t-20">
+						<div class="col-xs-12 p-2">
 
-						<div class="form-group">
-							<label>Nombre de usuario</label>
-							<input type="text" formControlName="username" class="form-control"
-								[ngClass]="{ 'is-invalid': formSubmitted && f['username'].errors }" />
+							<div class="form-group">
+								<label>Nombre de usuario</label>
+								<input type="text" formControlName="username" class="form-control"
+									[ngClass]="{ 'is-invalid': formSubmitted && f['username'].errors }" />
 
-							<div *ngIf="formSubmitted && f['username'].errors" class="invalid-feedback">
-								<div *ngIf="f['username'].errors['required']">El nombre de usuario es obligatorio.</div>
-								<div *ngIf="f['username'].errors['minlength']">
-									El nombre de usuario debe tener un minimo de 6 caracteres.
+								<div *ngIf="formSubmitted && f['username'].errors" class="invalid-feedback">
+									<div *ngIf="f['username'].errors['required']">El nombre de usuario es obligatorio.
+									</div>
+									<div *ngIf="f['username'].errors['minlength']">
+										El nombre de usuario debe tener un minimo de 6 caracteres.
+									</div>
+									<div *ngIf="f['username'].errors['maxlength']">
+										El nombre de usuario no puede tener mas de 20 caracteres.
+									</div>
 								</div>
-								<div *ngIf="f['username'].errors['maxlength']">
-									El nombre de usuario no puede tener mas de 20 caracteres.
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group ">
+						<div class="col-xs-12 p-2">
+							<div class="form-group">
+								<label>Email</label>
+								<input type="text" formControlName="email" class="form-control"
+									[ngClass]="{ 'is-invalid': formSubmitted && f['email'].errors }" />
+
+								<div *ngIf="formSubmitted && f['email'].errors" class="invalid-feedback">
+									<div *ngIf="f['email'].errors['required']">El Email es obligatorio.</div>
+									<div *ngIf="f['email'].errors['email']">El email es invalido.</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-xs-12 p-2">
+							<label>Password</label>
+							<input type="password" formControlName="password" class="form-control"
+								[ngClass]="{ 'is-invalid': formSubmitted && f['password'].errors }" />
+
+							<div *ngIf="formSubmitted && f['password'].errors" class="invalid-feedback">
+								<div *ngIf="f['password'].errors['required']">La contraseña es obligatoria.</div>
+								<div *ngIf="f['password'].errors['minlength']">
+									La contraseña debe tener un minimo de 6 caracteres
+								</div>
+								<div *ngIf="f['password'].errors['maxlength']">
+									La contraseña no puede tener un maximo de 24 caracteres
 								</div>
 							</div>
 						</div>
 					</div>
 
-				</div>
-				<div class="form-group ">
-					<div class="col-xs-12 p-2">
-						<div class="form-group">
-							<label>Email</label>
-							<input type="text" formControlName="email" class="form-control"
-								[ngClass]="{ 'is-invalid': formSubmitted && f['email'].errors }" />
+					<div class="form-group">
+						<div class="col-xs-12 p-2">
+							<label>Reescriba la contraseña</label>
+							<input type="password" formControlName="password2" class="form-control"
+								[ngClass]="{ 'is-invalid': formSubmitted && f['password2'].errors }" />
 
-							<div *ngIf="formSubmitted && f['email'].errors" class="invalid-feedback">
-								<div *ngIf="f['email'].errors['required']">El Email es obligatorio.</div>
-								<div *ngIf="f['email'].errors['email']">El email es invalido.</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="form-group">
-					<div class="col-xs-12 p-2">
-						<label>Password</label>
-						<input type="password" formControlName="password" class="form-control"
-							[ngClass]="{ 'is-invalid': formSubmitted && f['password'].errors }" />
-
-						<div *ngIf="formSubmitted && f['password'].errors" class="invalid-feedback">
-							<div *ngIf="f['password'].errors['required']">La contraseña es obligatoria.</div>
-							<div *ngIf="f['password'].errors['minlength']">
-								La contraseña debe tener un minimo de 6 caracteres
-							</div>
-							<div *ngIf="f['password'].errors['maxlength']">
-								La contraseña no puede tener un maximo de 24 caracteres
+							<div *ngIf="formSubmitted && f['password2'].errors" class="invalid-feedback">
+								<div *ngIf="f['password2'].errors['required']">
+									La confirmación de la contraseña es obligatoria.
+								</div>
+								<div *ngIf="f['password2'].errors['matching']">
+									Las contraseñas no coinciden.
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="form-group">
-					<div class="col-xs-12 p-2">
-						<label>Reescriba la contraseña</label>
-						<input type="password" formControlName="password2" class="form-control"
-							[ngClass]="{ 'is-invalid': formSubmitted && f['password2'].errors }" />
+					<div class="form-group form-check">
+						<input type="checkbox" formControlName="terminos" class="form-check-input"
+							[ngClass]="{ 'is-invalid': formSubmitted && f['terminos'].errors }" />
 
-						<div *ngIf="formSubmitted && f['password2'].errors" class="invalid-feedback">
-							<div *ngIf="f['password2'].errors['required']">
-								La confirmación de la contraseña es obligatoria.
-							</div>
-							<div *ngIf="f['password2'].errors['matching']">
-								Las contraseñas no coinciden.
-							</div>
+						<label for="terminos" class="form-check-label">He leído y acepto los Términos de Uso, Política
+							de
+							Privacidad y Reglamento de Nombres del juego.</label>
+						<div *ngIf="formSubmitted && f['terminos'].errors" class="invalid-feedback">
+							Debes aceptar los terminos.
 						</div>
 					</div>
-				</div>
 
-				<div class="form-group form-check">
-					<input type="checkbox" formControlName="terminos" class="form-check-input"
-						[ngClass]="{ 'is-invalid': formSubmitted && f['terminos'].errors }" />
-
-					<label for="terminos" class="form-check-label">He leído y acepto los Términos de Uso, Política de
-						Privacidad y Reglamento de Nombres del juego.</label>
-					<div *ngIf="formSubmitted && f['terminos'].errors" class="invalid-feedback">
-						Debes aceptar los terminos.
+					<div>
+						<form [formGroup]="aFormGroup">
+							<ngx-recaptcha2 #captchaElem siteKey="6LfpLsggAAAAAIIquu5IDM_1eL1-z1DdTwXpr91j"
+								(success)="handleSuccess($event)" [size]="size" [hl]="lang" [theme]="theme"
+								[type]="type" formControlName="recaptcha">
+							</ngx-recaptcha2>
+						</form>
 					</div>
-				</div>
 
-				<div>
-					<form [formGroup]="aFormGroup">
-						<ngx-recaptcha2 #captchaElem siteKey="6LfpLsggAAAAAIIquu5IDM_1eL1-z1DdTwXpr91j"
-							(success)="handleSuccess($event)" [size]="size" [hl]="lang" [theme]="theme" [type]="type"
-							formControlName="recaptcha">
-						</ngx-recaptcha2>
-					</form>
-				</div>
-
-				<div class="form-group text-center m-t-20">
-					<div class="col-xs-12">
-						<input type="submit" name="imgingresar" id="registro_btn" alt="registrar"
-							class="d-flex justify-content-center">
+					<div class="form-group text-center m-t-20">
+						<div class="col-xs-12">
+							<input type="submit" name="imgingresar" id="registro_btn" alt="registrar"
+								class="d-flex justify-content-center">
+						</div>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
+		</div>
+		<div *ngIf="registroExito !== false">
+			El registro se completó con éxito. Revise su correo para activar su cuenta. <br> Revisa en SPAM si no lo encuentra.
 		</div>
 	</div>

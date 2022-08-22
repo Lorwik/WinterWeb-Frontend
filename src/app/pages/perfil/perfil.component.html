@@ -25,5 +25,9 @@
         <div class="col">
             <input type="button" name="deslogear" id="salir_btn" alt="Salir" class="d-flex justify-content-center" (click)="deslogear()">
         </div>
+
+        <div class="col" *ngIf="esAdmin">
+            <input type="button" name="adminPanel" id="adminPanel_btn" alt="AdminPanel" class="d-flex justify-content-center" (click)="adminPanel()">
+        </div>
     </div>
 </div>

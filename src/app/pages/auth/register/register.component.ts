@@ -26,10 +26,12 @@ export class RegisterComponent implements OnInit {
 
   public theme: 'light' | 'dark' = 'dark';
   public size: 'compact' | 'normal' = 'normal';
-  public lang = 'en';
+  public lang = 'es';
   public type!: 'image' | 'audio';
 
   public formSubmitted = false;
+
+  public registroExito = false;
 
   registerForm: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -42,6 +44,10 @@ export class RegisterComponent implements OnInit {
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.usuarioService.isLoggedIn) {
+      this.router.navigateByUrl('/perfil');
+    }
+
     this.registerForm = this.fb.group({
         username: [
           '',
@@ -93,7 +99,7 @@ export class RegisterComponent implements OnInit {
     // Si el formulario es validor realizamos el Posteo
     this.usuarioService.crearUsuario( this.registerForm.value ).subscribe({
       next: () => {
-        this.router.navigateByUrl('/dashboard');
+        this.registroExito = true;
       },
       error: (err) => {
         console.log(err)
